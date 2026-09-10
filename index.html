@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0d0d0e" />
+  <title>Rachel Belier — Pianiste</title>
+  <meta name="description" content="Rachel Belier, pianiste — concerts privés, moments musicaux et cours de piano." />
+  <style>
+    :root {
+      --bg: #0d0d0e;
+      --card: #171719;
+      --text: #f6f2eb;
+      --muted: #b7b0a6;
+      --line: #2a292c;
+      --accent: #e7dccb;
+      --accent-soft: #c9bca8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 24px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(102, 80, 53, .22), transparent 30%),
+        linear-gradient(180deg, #121214 0%, var(--bg) 65%);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .card {
+      width: min(100%, 430px);
+      background: rgba(23, 23, 25, .96);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 32px 24px 24px;
+      box-shadow: 0 24px 70px rgba(0,0,0,.38);
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+
+    .avatar-wrap {
+      width: 118px;
+      height: 118px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid #3b3936;
+      background: #242426;
+      display: grid;
+      place-items: center;
+      box-shadow: inset 0 0 0 6px rgba(255,255,255,.015);
+    }
+
+    .avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .fallback {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 40px;
+      color: var(--accent);
+      letter-spacing: 1px;
+    }
+
+    .eyebrow {
+      margin-bottom: 8px;
+      color: var(--accent-soft);
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      font-size: 36px;
+      letter-spacing: -.6px;
+    }
+
+    .role {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .intro {
+      margin: 18px auto 22px;
+      max-width: 330px;
+      color: #d7d0c7;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .services {
+      display: grid;
+      gap: 9px;
+      margin-bottom: 24px;
+    }
+
+    .service {
+      padding: 11px 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #121214;
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    .primary {
+      display: block;
+      width: 100%;
+      border-radius: 16px;
+      padding: 15px 18px;
+      background: var(--accent);
+      color: #151515;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .secondary {
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 13px 12px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      background: #111113;
+    }
+
+    .contact {
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      text-align: left;
+    }
+
+    .contact a {
+      display: block;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 6px 0;
+      font-size: 14px;
+      word-break: break-word;
+    }
+
+    .footer {
+      margin-top: 18px;
+      color: #757067;
+      font-size: 11px;
+      letter-spacing: .03em;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="avatar-wrap">
+      <img src="profile.jpg" alt="Rachel Belier"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+      <span class="fallback" style="display:none;">RB</span>
+    </div>
+
+    <div class="eyebrow">Piano · Événements · Transmission</div>
+    <h1>Rachel Belier</h1>
+    <div class="role">Pianiste</div>
+
+    <p class="intro">
+      Une présence musicale pour vos moments privés,
+      et un accompagnement au piano pour apprendre et progresser.
+    </p>
+
+    <section class="services" aria-label="Prestations">
+      <div class="service">Concerts privés</div>
+      <div class="service">Moments musicaux</div>
+      <div class="service">Cours de piano</div>
+    </section>
+
+    <a class="primary" href="rachel-belier.vcf" download>Ajouter aux contacts</a>
+
+    <div class="actions">
+      <a class="secondary" href="tel:+33761519606">Appeler</a>
+      <a class="secondary" href="mailto:belier.rachel@hotmail.com">Écrire</a>
+    </div>
+
+    <div class="contact">
+      <a href="tel:+33761519606">+33 7 61 51 96 06</a>
+      <a href="mailto:belier.rachel@hotmail.com">belier.rachel@hotmail.com</a>
+    </div>
+
+    <div class="footer">Rachel Belier — Pianiste</div>
+  </main>
+</body>
+</html>
