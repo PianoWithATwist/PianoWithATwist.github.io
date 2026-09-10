@@ -2,6 +2,7 @@
 
 Contenu :
 - `index.html` : mini-site
+- `qr.html` : QR code généré dynamiquement depuis la fiche contact
 - `rachel-belier.vcf` : fiche contact
 - `profile.jpg` : photo à ajouter (optionnelle)
 
