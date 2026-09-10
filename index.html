@@ -3,214 +3,659 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0d0d0e" />
-  <title>Rachel Belier — Pianiste</title>
+  <meta name="theme-color" content="#111014" />
+  <title>Rachel Belier — Pianiste avec un twist</title>
   <meta name="description" content="Rachel Belier, pianiste — concerts privés, moments musicaux et cours de piano." />
   <style>
     :root {
-      --bg: #0d0d0e;
-      --card: #171719;
-      --text: #f6f2eb;
-      --muted: #b7b0a6;
-      --line: #2a292c;
-      --accent: #e7dccb;
-      --accent-soft: #c9bca8;
+      --ink: #161318;
+      --night: #0d0c0f;
+      --ivory: #f5f1e9;
+      --cream: #ebe3d5;
+      --champagne: #e5bb78;
+      --coral: #f06d55;
+      --rose: #e8c8c2;
+      --muted: #756b70;
+      --line: rgba(22, 19, 24, .15);
+      --white: #fffdf9;
     }
 
     * { box-sizing: border-box; }
 
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      min-height: 100vh;
-      padding: 24px;
-      display: grid;
-      place-items: center;
+      min-width: 320px;
+      overflow-x: hidden;
       background:
-        radial-gradient(circle at 50% 0%, rgba(102, 80, 53, .22), transparent 30%),
-        linear-gradient(180deg, #121214 0%, var(--bg) 65%);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        radial-gradient(circle at 8% 18%, rgba(240, 109, 85, .08), transparent 22%),
+        var(--ivory);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    .card {
-      width: min(100%, 430px);
-      background: rgba(23, 23, 25, .96);
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      padding: 32px 24px 24px;
-      box-shadow: 0 24px 70px rgba(0,0,0,.38);
-      text-align: center;
-      backdrop-filter: blur(8px);
+    a { color: inherit; }
+
+    .shell {
+      width: calc(100% - 40px);
+      max-width: 1240px;
+      margin-inline: auto;
     }
 
-    .avatar-wrap {
-      width: 118px;
-      height: 118px;
-      margin: 0 auto 20px;
-      border-radius: 50%;
+    .site-header {
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 3px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 29px;
+      font-weight: 700;
+      line-height: 1;
+      text-decoration: none;
+    }
+
+    .brand span { color: var(--coral); }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav a { text-decoration: none; }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: "";
+      height: 2px;
+      position: absolute;
+      right: 0;
+      bottom: -6px;
+      left: 0;
+      background: var(--coral);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform .2s ease;
+    }
+
+    .nav-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav-pill {
+      padding: 10px 17px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    .nav-pill:hover {
+      background: var(--ink);
+      color: var(--ivory);
+    }
+
+    .hero { padding: 10px 0 86px; }
+
+    .hero-card {
+      min-height: 580px;
+      position: relative;
       overflow: hidden;
-      border: 1px solid #3b3936;
-      background: #242426;
-      display: grid;
-      place-items: center;
-      box-shadow: inset 0 0 0 6px rgba(255,255,255,.015);
+      border-radius: 26px;
+      background: var(--night);
+      box-shadow: 0 30px 75px rgba(27, 19, 24, .22);
+      color: var(--ivory);
+      isolation: isolate;
     }
 
-    .avatar-wrap img {
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+    }
+
+    .hero-photo img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
       display: block;
+      object-fit: cover;
+      object-position: center;
+      filter: grayscale(1) contrast(1.08);
+      transform: scale(1.015);
     }
 
-    .fallback {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 40px;
-      color: var(--accent);
-      letter-spacing: 1px;
+    .hero-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(13, 12, 15, .04) 0%, rgba(13, 12, 15, .12) 34%, rgba(13, 12, 15, .88) 63%, var(--night) 100%),
+        linear-gradient(0deg, rgba(13, 12, 15, .35), transparent 45%);
     }
+
+    .hero-content {
+      width: 52%;
+      min-height: 580px;
+      margin-left: auto;
+      padding: 66px clamp(38px, 5vw, 76px) 52px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .hero-content > * { max-width: 100%; }
 
     .eyebrow {
-      margin-bottom: 8px;
-      color: var(--accent-soft);
-      font-size: 12px;
-      letter-spacing: .18em;
+      margin: 0 0 14px;
+      color: var(--champagne);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .24em;
       text-transform: uppercase;
     }
 
     h1 {
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(47px, 5vw, 72px);
       font-weight: 500;
-      font-size: 36px;
-      letter-spacing: -.6px;
+      letter-spacing: -.035em;
+      line-height: 1;
     }
 
     .role {
-      margin-top: 7px;
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .intro {
-      margin: 18px auto 22px;
-      max-width: 330px;
-      color: #d7d0c7;
+      margin: 15px 0 0;
       font-size: 14px;
-      line-height: 1.55;
+      font-weight: 500;
+      letter-spacing: .5em;
+      text-indent: .5em;
+      text-transform: uppercase;
     }
 
-    .services {
-      display: grid;
-      gap: 9px;
-      margin-bottom: 24px;
+    .divider {
+      width: 62px;
+      height: 3px;
+      margin: 24px 0;
+      border-radius: 3px;
+      background: var(--champagne);
     }
 
-    .service {
-      padding: 11px 14px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: #121214;
-      color: var(--accent);
-      font-size: 14px;
+    .tagline {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(24px, 2.4vw, 34px);
+      line-height: 1.08;
     }
 
-    .primary {
-      display: block;
-      width: 100%;
-      border-radius: 16px;
-      padding: 15px 18px;
-      background: var(--accent);
-      color: #151515;
-      text-decoration: none;
+    .tagline em {
+      color: var(--coral);
+      font-weight: 500;
+    }
+
+    .offerings {
+      margin: 20px 0 0;
+      color: #d7d0c8;
+      font-size: 11px;
       font-weight: 700;
-      font-size: 16px;
-      margin-bottom: 12px;
+      letter-spacing: .16em;
+      line-height: 1.8;
+      text-transform: uppercase;
     }
 
-    .actions {
+    .hero-actions {
+      width: 100%;
+      margin-top: 27px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
     }
 
-    .secondary {
-      display: block;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 13px 12px;
-      color: var(--text);
+    .button {
+      min-height: 50px;
+      padding: 10px 17px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, .3);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 750;
       text-decoration: none;
-      font-size: 14px;
-      background: #111113;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
     }
 
-    .qr-action {
-      grid-column: 1 / -1;
-      color: var(--accent);
+    .button:hover { transform: translateY(-2px); }
+
+    .button-primary {
+      border-color: var(--champagne);
+      background: var(--champagne);
+      color: var(--ink);
     }
 
-    .contact {
+    .button-secondary:hover {
+      border-color: var(--ivory);
+      background: var(--ivory);
+      color: var(--ink);
+    }
+
+    .twist-stamp {
+      width: 76px;
+      height: 76px;
+      position: absolute;
+      top: 26px;
+      right: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--coral);
+      color: var(--night);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 34px;
+      transform: rotate(8deg);
+    }
+
+    .intro-strip {
       margin-top: 22px;
-      padding-top: 20px;
-      border-top: 1px solid var(--line);
-      text-align: left;
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 20px;
     }
 
-    .contact a {
-      display: block;
-      color: var(--muted);
-      text-decoration: none;
-      padding: 6px 0;
-      font-size: 14px;
-      word-break: break-word;
+    .intro-note,
+    .intro-copy {
+      min-height: 150px;
+      padding: 30px;
+      border-radius: 22px;
     }
 
-    .footer {
-      margin-top: 18px;
-      color: #757067;
+    .intro-note {
+      display: flex;
+      align-items: flex-end;
+      background: var(--coral);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(28px, 3.2vw, 45px);
+      line-height: 1;
+    }
+
+    .intro-copy {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      background: rgba(255, 253, 249, .55);
+      color: #5e5359;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.45;
+    }
+
+    .services {
+      padding: 92px 0 100px;
+    }
+
+    .section-heading {
+      margin-bottom: 40px;
+      display: grid;
+      grid-template-columns: .65fr 1.35fr;
+      gap: 30px;
+      align-items: end;
+    }
+
+    .section-label {
+      margin: 0;
+      color: var(--coral);
       font-size: 11px;
-      letter-spacing: .03em;
+      font-weight: 850;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 760px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(40px, 5vw, 67px);
+      font-weight: 500;
+      letter-spacing: -.04em;
+      line-height: 1;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .service-card {
+      min-height: 286px;
+      padding: 27px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--white);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .service-card:nth-child(2) { background: var(--rose); }
+    .service-card:nth-child(3) { background: var(--cream); }
+
+    .service-card:hover {
+      box-shadow: 0 16px 35px rgba(32, 22, 28, .10);
+      transform: translateY(-5px);
+    }
+
+    .service-number {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .14em;
+    }
+
+    .service-number::after {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .service-card h3 {
+      margin: auto 0 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      font-weight: 500;
+      letter-spacing: -.025em;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: #61565b;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .contact-panel {
+      margin-bottom: 25px;
+      padding: clamp(34px, 6vw, 72px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, .55fr);
+      align-items: center;
+      gap: 50px;
+      border-radius: 28px;
+      background: var(--ink);
+      color: var(--ivory);
+    }
+
+    .contact-panel h2 {
+      margin-top: 13px;
+      max-width: 650px;
+    }
+
+    .contact-actions {
+      display: grid;
+      gap: 10px;
+    }
+
+    .contact-link {
+      padding: 15px 17px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 14px;
+      color: var(--ivory);
+      font-size: 14px;
+      text-decoration: none;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    .contact-link:hover {
+      background: var(--ivory);
+      color: var(--ink);
+    }
+
+    .contact-link span:last-child {
+      color: var(--champagne);
+      font-size: 19px;
+    }
+
+    .site-footer {
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .site-footer a { text-decoration: none; }
+
+    :focus-visible {
+      outline: 3px solid var(--coral);
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 940px) {
+      .hero-card,
+      .hero-content { min-height: 540px; }
+
+      .hero-content { width: 58%; }
+
+      .hero-photo::after {
+        background: linear-gradient(90deg, rgba(13, 12, 15, .10), rgba(13, 12, 15, .94) 58%, var(--night));
+      }
+
+      .section-heading { grid-template-columns: 1fr; gap: 15px; }
+      .contact-panel { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      .shell { width: calc(100% - 28px); }
+
+      .site-header { min-height: 72px; }
+      .nav { gap: 10px; }
+      .nav-link { display: none; }
+      .nav-pill { padding: 9px 13px; font-size: 12px; }
+
+      .hero { padding: 4px 0 68px; }
+
+      .hero-card { min-height: 0; border-radius: 20px; }
+
+      .hero-photo {
+        height: 245px;
+        position: relative;
+      }
+
+      .hero-photo img {
+        object-position: center;
+        transform: none;
+      }
+
+      .hero-photo::after {
+        background: linear-gradient(0deg, var(--night) 0%, transparent 55%);
+      }
+
+      .hero-content {
+        width: 100%;
+        min-height: 0;
+        padding: 8px 22px 34px;
+      }
+
+      h1 {
+        font-size: clamp(42px, 12vw, 52px);
+        white-space: nowrap;
+      }
+
+      .role { font-size: 12px; }
+
+      .tagline { font-size: 27px; }
+
+      .offerings {
+        font-size: 10px;
+        letter-spacing: .11em;
+      }
+
+      .hero-actions { grid-template-columns: 1fr; }
+
+      .twist-stamp {
+        width: 58px;
+        height: 58px;
+        top: 20px;
+        right: 18px;
+        font-size: 27px;
+      }
+
+      .intro-strip { grid-template-columns: 1fr; }
+      .intro-note, .intro-copy { min-height: 130px; padding: 24px; }
+
+      .services { padding: 70px 0 76px; }
+      .service-grid { grid-template-columns: 1fr; }
+      .service-card { min-height: 225px; }
+
+      .contact-panel {
+        padding: 34px 22px;
+        border-radius: 22px;
+      }
+
+      .contact-link {
+        align-items: flex-start;
+        overflow-wrap: anywhere;
+      }
+
+      .site-footer {
+        padding: 20px 0 28px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 370px) {
+      h1 { font-size: 39px; }
+      .hero-content { padding-inline: 18px; }
+      .offerings { letter-spacing: .07em; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
     }
   </style>
 </head>
 <body>
-  <main class="card">
-    <div class="avatar-wrap">
-      <img src="profile.jpg" alt="Rachel Belier"
-           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-      <span class="fallback" style="display:none;">RB</span>
-    </div>
+  <header class="site-header shell">
+    <a class="brand" href="#top" aria-label="Rachel Belier — Accueil">RB<span>.</span></a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="nav-link" href="#prestations">Prestations</a>
+      <a class="nav-link" href="#contact">Contact</a>
+      <a class="nav-pill" href="qr.html">QR contact</a>
+    </nav>
+  </header>
 
-    <div class="eyebrow">Piano · Événements · Transmission</div>
-    <h1>Rachel Belier</h1>
-    <div class="role">Pianiste</div>
+  <main id="top">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-card">
+        <div class="hero-photo">
+          <img src="piano-hero.jpg" alt="Clavier de piano en noir et blanc" />
+        </div>
 
-    <p class="intro">
-      Une présence musicale pour vos moments privés,
-      et un accompagnement au piano pour apprendre et progresser.
-    </p>
+        <div class="hero-content">
+          <p class="eyebrow">Une musique à votre image</p>
+          <h1 id="hero-title">Rachel Belier</h1>
+          <p class="role">Pianiste</p>
+          <span class="divider" aria-hidden="true"></span>
+          <p class="tagline">Le piano,<br><em>avec un twist.</em></p>
+          <p class="offerings">Concerts privés · Moments musicaux · Cours</p>
 
-    <section class="services" aria-label="Prestations">
-      <div class="service">Concerts privés</div>
-      <div class="service">Moments musicaux</div>
-      <div class="service">Cours de piano</div>
+          <div class="hero-actions">
+            <a class="button button-primary" href="mailto:belier.rachel@hotmail.com">Écrire à Rachel</a>
+            <a class="button button-secondary" href="rachel-belier.vcf" download>Ajouter aux contacts</a>
+          </div>
+        </div>
+
+        <div class="twist-stamp" aria-hidden="true">♪</div>
+      </div>
+
+      <div class="intro-strip">
+        <div class="intro-note">Classique,<br>jamais trop sage.</div>
+        <div class="intro-copy">Une présence musicale sensible, pétillante et sur mesure pour vos moments privés — et un accompagnement attentif pour faire grandir votre propre jeu.</div>
+      </div>
     </section>
 
-    <a class="primary" href="rachel-belier.vcf" download>Ajouter aux contacts</a>
+    <section class="services shell" id="prestations" aria-labelledby="services-title">
+      <div class="section-heading">
+        <p class="section-label">Les prestations</p>
+        <h2 id="services-title">Une musique pensée pour chaque moment.</h2>
+      </div>
 
-    <div class="actions">
-      <a class="secondary" href="tel:+33761519606">Appeler</a>
-      <a class="secondary" href="mailto:belier.rachel@hotmail.com">Écrire</a>
-      <a class="secondary qr-action" href="qr.html">Afficher le QR code contact</a>
-    </div>
+      <div class="service-grid">
+        <article class="service-card">
+          <span class="service-number">01</span>
+          <h3>Concerts privés</h3>
+          <p>Un programme élégant et vivant, imaginé pour votre lieu, votre public et votre histoire.</p>
+        </article>
 
-    <div class="contact">
-      <a href="tel:+33761519606">+33 7 61 51 96 06</a>
-      <a href="mailto:belier.rachel@hotmail.com">belier.rachel@hotmail.com</a>
-    </div>
+        <article class="service-card">
+          <span class="service-number">02</span>
+          <h3>Moments musicaux</h3>
+          <p>Une parenthèse au piano pour accompagner une célébration, une rencontre ou un instant précieux.</p>
+        </article>
 
-    <div class="footer">Rachel Belier — Pianiste</div>
+        <article class="service-card">
+          <span class="service-number">03</span>
+          <h3>Cours de piano</h3>
+          <p>Un accompagnement attentif et joyeux pour progresser, prendre confiance et trouver son style.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact-panel shell" id="contact" aria-labelledby="contact-title">
+      <div>
+        <p class="section-label">Un projet en tête ?</p>
+        <h2 id="contact-title">Faisons entrer un peu de musique dans l’histoire.</h2>
+      </div>
+
+      <div class="contact-actions">
+        <a class="contact-link" href="tel:+33761519606">
+          <span>+33 7 61 51 96 06</span><span aria-hidden="true">↗</span>
+        </a>
+        <a class="contact-link" href="mailto:belier.rachel@hotmail.com">
+          <span>belier.rachel@hotmail.com</span><span aria-hidden="true">↗</span>
+        </a>
+        <a class="contact-link" href="qr.html">
+          <span>Afficher le QR contact</span><span aria-hidden="true">⌁</span>
+        </a>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer shell">
+    <span>© <span id="current-year"></span> Rachel Belier — Pianiste</span>
+    <a href="#top">Retour en haut ↑</a>
+  </footer>
+
+  <script>
+    document.querySelector('#current-year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

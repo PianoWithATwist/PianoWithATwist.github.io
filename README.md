@@ -4,7 +4,7 @@ Contenu :
 - `index.html` : mini-site
 - `qr.html` : QR code généré dynamiquement depuis la fiche contact
 - `rachel-belier.vcf` : fiche contact
-- `profile.jpg` : photo à ajouter (optionnelle)
+- `piano-hero.jpg` : visuel principal de la page d'accueil
 
 Le site présente désormais :
 - Concerts privés
@@ -14,8 +14,6 @@ Le site présente désormais :
 ## GitHub Pages
 
 Site publié à l'adresse : https://pianowithatwist.github.io/
-
-Ajoute une photo nommée exactement `profile.jpg` si souhaité.
 
 ## Important
 
