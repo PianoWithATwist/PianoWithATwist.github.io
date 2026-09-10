@@ -3,21 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#111014" />
-  <title>Rachel Belier — Pianiste avec un twist</title>
-  <meta name="description" content="Rachel Belier, pianiste — concerts privés, moments musicaux et cours de piano." />
+  <meta name="theme-color" content="#0e0e0d" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <title>Rachel Belier — Pianiste pour événements privés</title>
+  <meta name="description" content="Rachel Belier, pianiste pour concerts, soirées privées, cérémonies et réceptions." />
   <style>
     :root {
-      --ink: #161318;
-      --night: #0d0c0f;
-      --ivory: #f5f1e9;
-      --cream: #ebe3d5;
-      --champagne: #e5bb78;
-      --coral: #f06d55;
-      --rose: #e8c8c2;
-      --muted: #756b70;
-      --line: rgba(22, 19, 24, .15);
-      --white: #fffdf9;
+      --ink: #171614;
+      --night: #0e0e0d;
+      --ivory: #f2efe9;
+      --cream: #e7e1d7;
+      --champagne: #c7a56d;
+      --bronze: #957247;
+      --stone: #d7d1c7;
+      --muted: #706b64;
+      --line: rgba(23, 22, 20, .15);
+      --white: #faf8f4;
     }
 
     * { box-sizing: border-box; }
@@ -28,9 +29,7 @@
       margin: 0;
       min-width: 320px;
       overflow-x: hidden;
-      background:
-        radial-gradient(circle at 8% 18%, rgba(240, 109, 85, .08), transparent 22%),
-        var(--ivory);
+      background: var(--ivory);
       color: var(--ink);
       font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
@@ -62,7 +61,7 @@
       text-decoration: none;
     }
 
-    .brand span { color: var(--coral); }
+    .brand span { color: var(--bronze); }
 
     .nav {
       display: flex;
@@ -73,6 +72,33 @@
     }
 
     .nav a { text-decoration: none; }
+
+    .language-switcher {
+      padding: 4px;
+      display: flex;
+      gap: 2px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+    }
+
+    .language-button {
+      width: 34px;
+      height: 28px;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 11px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .language-button[aria-pressed="true"] {
+      background: var(--ink);
+      color: var(--ivory);
+    }
 
     .nav-link {
       position: relative;
@@ -85,7 +111,7 @@
       right: 0;
       bottom: -6px;
       left: 0;
-      background: var(--coral);
+      background: var(--champagne);
       transform: scaleX(0);
       transform-origin: right;
       transition: transform .2s ease;
@@ -205,7 +231,8 @@
     }
 
     .tagline em {
-      color: var(--coral);
+      color: var(--champagne);
+      font-style: normal;
       font-weight: 500;
     }
 
@@ -263,12 +290,13 @@
       right: 28px;
       display: grid;
       place-items: center;
+      border: 1px solid rgba(199, 165, 109, .7);
       border-radius: 50%;
-      background: var(--coral);
-      color: var(--night);
+      background: rgba(14, 14, 13, .42);
+      color: var(--champagne);
       font-family: Georgia, "Times New Roman", serif;
       font-size: 34px;
-      transform: rotate(8deg);
+      backdrop-filter: blur(5px);
     }
 
     .intro-strip {
@@ -288,7 +316,8 @@
     .intro-note {
       display: flex;
       align-items: flex-end;
-      background: var(--coral);
+      background: var(--ink);
+      color: var(--ivory);
       font-family: Georgia, "Times New Roman", serif;
       font-size: clamp(28px, 3.2vw, 45px);
       line-height: 1;
@@ -299,7 +328,7 @@
       align-items: center;
       border: 1px solid var(--line);
       background: rgba(255, 253, 249, .55);
-      color: #5e5359;
+      color: #57524c;
       font-family: Georgia, "Times New Roman", serif;
       font-size: clamp(18px, 2vw, 24px);
       line-height: 1.45;
@@ -319,7 +348,7 @@
 
     .section-label {
       margin: 0;
-      color: var(--coral);
+      color: var(--bronze);
       font-size: 11px;
       font-weight: 850;
       letter-spacing: .2em;
@@ -338,7 +367,7 @@
 
     .service-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1.1fr 1.1fr .8fr;
       gap: 16px;
     }
 
@@ -353,8 +382,14 @@
       transition: transform .25s ease, box-shadow .25s ease;
     }
 
-    .service-card:nth-child(2) { background: var(--rose); }
-    .service-card:nth-child(3) { background: var(--cream); }
+    .service-card:nth-child(2) { background: var(--cream); }
+
+    .service-card-secondary {
+      background: transparent;
+      color: #4f4b46;
+    }
+
+    .service-card-secondary h3 { font-size: 27px; }
 
     .service-card:hover {
       box-shadow: 0 16px 35px rgba(32, 22, 28, .10);
@@ -388,7 +423,7 @@
 
     .service-card p {
       margin: 0;
-      color: #61565b;
+      color: #5f5a54;
       font-size: 15px;
       line-height: 1.55;
     }
@@ -452,7 +487,7 @@
     .site-footer a { text-decoration: none; }
 
     :focus-visible {
-      outline: 3px solid var(--coral);
+      outline: 3px solid var(--champagne);
       outline-offset: 4px;
     }
 
@@ -474,9 +509,14 @@
       .shell { width: calc(100% - 28px); }
 
       .site-header { min-height: 72px; }
-      .nav { gap: 10px; }
+      .nav { gap: 8px; }
       .nav-link { display: none; }
       .nav-pill { padding: 9px 13px; font-size: 12px; }
+
+      .language-button {
+        width: 30px;
+        height: 26px;
+      }
 
       .hero { padding: 4px 0 68px; }
 
@@ -564,11 +604,14 @@
 </head>
 <body>
   <header class="site-header shell">
-    <a class="brand" href="#top" aria-label="Rachel Belier — Accueil">RB<span>.</span></a>
-    <nav class="nav" aria-label="Navigation principale">
-      <a class="nav-link" href="#prestations">Prestations</a>
-      <a class="nav-link" href="#contact">Contact</a>
-      <a class="nav-pill" href="qr.html">QR contact</a>
+    <a class="brand" href="#top" aria-label="Rachel Belier — Accueil" data-i18n-aria="brandLabel">RB<span>.</span></a>
+    <nav class="nav" aria-label="Navigation principale" data-i18n-aria="navigationLabel">
+      <a class="nav-link" href="#prestations" data-i18n="navServices">Prestations</a>
+      <div class="language-switcher" role="group" aria-label="Choix de la langue" data-i18n-aria="languageLabel">
+        <button class="language-button" type="button" data-language="fr" aria-pressed="true">FR</button>
+        <button class="language-button" type="button" data-language="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="nav-pill" href="#contact" data-i18n="navCta">Me contacter</a>
     </nav>
   </header>
 
@@ -580,16 +623,16 @@
         </div>
 
         <div class="hero-content">
-          <p class="eyebrow">Une musique à votre image</p>
+          <p class="eyebrow" data-i18n="heroEyebrow">Pianiste pour événements privés</p>
           <h1 id="hero-title">Rachel Belier</h1>
-          <p class="role">Pianiste</p>
+          <p class="role" data-i18n="role">Pianiste</p>
           <span class="divider" aria-hidden="true"></span>
-          <p class="tagline">Le piano,<br><em>avec un twist.</em></p>
-          <p class="offerings">Concerts privés · Moments musicaux · Cours</p>
+          <p class="tagline"><span data-i18n="taglineLead">L’élégance du piano,</span><br><em data-i18n="taglineAccent">pour vos moments d’exception.</em></p>
+          <p class="offerings" data-i18n="offerings">Concerts · Soirées privées · Réceptions</p>
 
           <div class="hero-actions">
-            <a class="button button-primary" href="mailto:belier.rachel@hotmail.com">Écrire à Rachel</a>
-            <a class="button button-secondary" href="rachel-belier.vcf" download>Ajouter aux contacts</a>
+            <a class="button button-primary" href="mailto:belier.rachel@hotmail.com?subject=Projet%20musical%20pour%20un%20événement" data-i18n="heroCta">Me contacter</a>
+            <a class="button button-secondary" href="#prestations" data-i18n="heroSecondary">Voir les prestations</a>
           </div>
         </div>
 
@@ -597,42 +640,42 @@
       </div>
 
       <div class="intro-strip">
-        <div class="intro-note">Classique,<br>jamais trop sage.</div>
-        <div class="intro-copy">Une présence musicale sensible, pétillante et sur mesure pour vos moments privés — et un accompagnement attentif pour faire grandir votre propre jeu.</div>
+        <div class="intro-note"><div><span data-i18n="introNoteLead">Une présence musicale</span><br><span data-i18n="introNoteAccent">élégante et vivante.</span></div></div>
+        <div class="intro-copy" data-i18n="introCopy">Rachel crée au piano une atmosphère sensible et sur mesure, pensée pour accompagner avec justesse vos soirées, réceptions et moments précieux.</div>
       </div>
     </section>
 
     <section class="services shell" id="prestations" aria-labelledby="services-title">
       <div class="section-heading">
-        <p class="section-label">Les prestations</p>
-        <h2 id="services-title">Une musique pensée pour chaque moment.</h2>
+        <p class="section-label" data-i18n="servicesLabel">Concerts &amp; événements privés</p>
+        <h2 id="services-title" data-i18n="servicesTitle">Le piano au cœur de votre événement.</h2>
       </div>
 
       <div class="service-grid">
         <article class="service-card">
           <span class="service-number">01</span>
-          <h3>Concerts privés</h3>
-          <p>Un programme élégant et vivant, imaginé pour votre lieu, votre public et votre histoire.</p>
+          <h3 data-i18n="serviceOneTitle">Concerts &amp; soirées privées</h3>
+          <p data-i18n="serviceOneCopy">Un programme élégant et vivant, imaginé pour votre lieu, vos invités et l’atmosphère de votre soirée.</p>
         </article>
 
         <article class="service-card">
           <span class="service-number">02</span>
-          <h3>Moments musicaux</h3>
-          <p>Une parenthèse au piano pour accompagner une célébration, une rencontre ou un instant précieux.</p>
+          <h3 data-i18n="serviceTwoTitle">Cérémonies &amp; réceptions</h3>
+          <p data-i18n="serviceTwoCopy">Une présence musicale raffinée pour accompagner une cérémonie, un cocktail ou un moment précieux.</p>
         </article>
 
-        <article class="service-card">
+        <article class="service-card service-card-secondary">
           <span class="service-number">03</span>
-          <h3>Cours de piano</h3>
-          <p>Un accompagnement attentif et joyeux pour progresser, prendre confiance et trouver son style.</p>
+          <h3 data-i18n="serviceThreeTitle">Cours de piano</h3>
+          <p data-i18n="serviceThreeCopy">Des cours attentifs et personnalisés, proposés en complément de l’activité de pianiste.</p>
         </article>
       </div>
     </section>
 
     <section class="contact-panel shell" id="contact" aria-labelledby="contact-title">
       <div>
-        <p class="section-label">Un projet en tête ?</p>
-        <h2 id="contact-title">Faisons entrer un peu de musique dans l’histoire.</h2>
+        <p class="section-label" data-i18n="contactLabel">Votre événement</p>
+        <h2 id="contact-title" data-i18n="contactTitle">Imaginons ensemble son atmosphère musicale.</h2>
       </div>
 
       <div class="contact-actions">
@@ -643,19 +686,130 @@
           <span>belier.rachel@hotmail.com</span><span aria-hidden="true">↗</span>
         </a>
         <a class="contact-link" href="qr.html">
-          <span>Afficher le QR contact</span><span aria-hidden="true">⌁</span>
+          <span data-i18n="qrLink">Afficher le QR contact</span><span aria-hidden="true">⌁</span>
         </a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer shell">
-    <span>© <span id="current-year"></span> Rachel Belier — Pianiste</span>
-    <a href="#top">Retour en haut ↑</a>
+    <span>© <span id="current-year"></span> Rachel Belier — <span data-i18n="footerRole">Pianiste</span></span>
+    <a href="#top" data-i18n="backToTop">Retour en haut ↑</a>
   </footer>
 
   <script>
     document.querySelector('#current-year').textContent = new Date().getFullYear();
+
+    const translations = {
+      fr: {
+        title: 'Rachel Belier — Pianiste pour événements privés',
+        description: 'Rachel Belier, pianiste pour concerts, soirées privées, cérémonies et réceptions.',
+        brandLabel: 'Rachel Belier — Accueil',
+        navigationLabel: 'Navigation principale',
+        languageLabel: 'Choix de la langue',
+        navServices: 'Prestations',
+        navCta: 'Me contacter',
+        heroEyebrow: 'Pianiste pour événements privés',
+        role: 'Pianiste',
+        taglineLead: 'L’élégance du piano,',
+        taglineAccent: 'pour vos moments d’exception.',
+        offerings: 'Concerts · Soirées privées · Réceptions',
+        heroCta: 'Me contacter',
+        heroSecondary: 'Voir les prestations',
+        introNoteLead: 'Une présence musicale',
+        introNoteAccent: 'élégante et vivante.',
+        introCopy: 'Rachel crée au piano une atmosphère sensible et sur mesure, pensée pour accompagner avec justesse vos soirées, réceptions et moments précieux.',
+        servicesLabel: 'Concerts & événements privés',
+        servicesTitle: 'Le piano au cœur de votre événement.',
+        serviceOneTitle: 'Concerts & soirées privées',
+        serviceOneCopy: 'Un programme élégant et vivant, imaginé pour votre lieu, vos invités et l’atmosphère de votre soirée.',
+        serviceTwoTitle: 'Cérémonies & réceptions',
+        serviceTwoCopy: 'Une présence musicale raffinée pour accompagner une cérémonie, un cocktail ou un moment précieux.',
+        serviceThreeTitle: 'Cours de piano',
+        serviceThreeCopy: 'Des cours attentifs et personnalisés, proposés en complément de l’activité de pianiste.',
+        contactLabel: 'Votre événement',
+        contactTitle: 'Imaginons ensemble son atmosphère musicale.',
+        qrLink: 'Afficher le QR contact',
+        footerRole: 'Pianiste',
+        backToTop: 'Retour en haut ↑',
+        mailSubject: 'Projet musical pour un événement'
+      },
+      en: {
+        title: 'Rachel Belier — Pianist for private events',
+        description: 'Rachel Belier, pianist for concerts, private parties, ceremonies and receptions.',
+        brandLabel: 'Rachel Belier — Home',
+        navigationLabel: 'Main navigation',
+        languageLabel: 'Language selection',
+        navServices: 'Services',
+        navCta: 'Contact me',
+        heroEyebrow: 'Pianist for private events',
+        role: 'Pianist',
+        taglineLead: 'The elegance of live piano,',
+        taglineAccent: 'for your most memorable moments.',
+        offerings: 'Concerts · Private parties · Receptions',
+        heroCta: 'Contact me',
+        heroSecondary: 'Explore the services',
+        introNoteLead: 'An elegant and vibrant',
+        introNoteAccent: 'musical presence.',
+        introCopy: 'Rachel creates a sensitive, bespoke piano atmosphere, thoughtfully tailored to your parties, receptions and most meaningful moments.',
+        servicesLabel: 'Concerts & private events',
+        servicesTitle: 'Piano at the heart of your event.',
+        serviceOneTitle: 'Concerts & private parties',
+        serviceOneCopy: 'An elegant and lively programme created around your venue, your guests and the atmosphere of your evening.',
+        serviceTwoTitle: 'Ceremonies & receptions',
+        serviceTwoCopy: 'Refined live piano music for a ceremony, cocktail reception or meaningful celebration.',
+        serviceThreeTitle: 'Piano lessons',
+        serviceThreeCopy: 'Attentive, personalised lessons offered alongside Rachel’s work as a performing pianist.',
+        contactLabel: 'Your event',
+        contactTitle: 'Let’s create its musical atmosphere together.',
+        qrLink: 'Show contact QR code',
+        footerRole: 'Pianist',
+        backToTop: 'Back to top ↑',
+        mailSubject: 'Music for a private event'
+      }
+    };
+
+    const description = document.querySelector('meta[name="description"]');
+    const primaryContact = document.querySelector('.button-primary');
+    const languageButtons = document.querySelectorAll('[data-language]');
+
+    function setLanguage(language) {
+      const selectedLanguage = translations[language] ? language : 'fr';
+      const copy = translations[selectedLanguage];
+
+      document.documentElement.lang = selectedLanguage;
+      document.title = copy.title;
+      description.setAttribute('content', copy.description);
+
+      document.querySelectorAll('[data-i18n]').forEach((element) => {
+        element.textContent = copy[element.dataset.i18n];
+      });
+
+      document.querySelectorAll('[data-i18n-aria]').forEach((element) => {
+        element.setAttribute('aria-label', copy[element.dataset.i18nAria]);
+      });
+
+      languageButtons.forEach((button) => {
+        button.setAttribute('aria-pressed', String(button.dataset.language === selectedLanguage));
+      });
+
+      primaryContact.href = `mailto:belier.rachel@hotmail.com?subject=${encodeURIComponent(copy.mailSubject)}`;
+
+      try {
+        localStorage.setItem('rachel-belier-language', selectedLanguage);
+      } catch (_) {}
+    }
+
+    let savedLanguage;
+    try {
+      savedLanguage = localStorage.getItem('rachel-belier-language');
+    } catch (_) {}
+
+    const initialLanguage = savedLanguage || 'fr';
+    languageButtons.forEach((button) => {
+      button.addEventListener('click', () => setLanguage(button.dataset.language));
+    });
+    setLanguage(initialLanguage);
   </script>
 </body>
 </html>
