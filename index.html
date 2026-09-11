@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0e0e0d" />
+  <meta name="theme-color" content="#f2efe9" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <title>Rachel Belier — Pianiste pour événements privés</title>
   <meta name="description" content="Rachel Belier, pianiste pour concerts, soirées privées, cérémonies et réceptions." />
@@ -14,7 +14,7 @@
       --ivory: #f2efe9;
       --cream: #e7e1d7;
       --champagne: #c7a56d;
-      --bronze: #957247;
+      --bronze: #765733;
       --stone: #d7d1c7;
       --muted: #706b64;
       --line: rgba(23, 22, 20, .15);
@@ -35,6 +35,30 @@
     }
 
     a { color: inherit; }
+
+    a,
+    button {
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: rgba(199, 165, 109, .25);
+    }
+
+    .skip-link {
+      padding: 11px 16px;
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 20;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--ivory);
+      font-size: 14px;
+      font-weight: 750;
+      text-decoration: none;
+      transform: translateY(-180%);
+      transition: transform .2s ease;
+    }
+
+    .skip-link:focus-visible { transform: translateY(0); }
 
     .shell {
       width: calc(100% - 40px);
@@ -59,9 +83,12 @@
       font-weight: 700;
       line-height: 1;
       text-decoration: none;
+      transition: color .2s ease;
     }
 
-    .brand span { color: var(--bronze); }
+    .brand-mark { color: var(--bronze); }
+    .brand:hover { color: var(--bronze); }
+    .brand-initials { display: none; }
 
     .nav {
       display: flex;
@@ -82,8 +109,8 @@
     }
 
     .language-button {
-      width: 34px;
-      height: 28px;
+      width: 44px;
+      height: 44px;
       padding: 0;
       border: 0;
       border-radius: 999px;
@@ -93,7 +120,10 @@
       font-size: 11px;
       font-weight: 800;
       cursor: pointer;
+      transition: background-color .2s ease, color .2s ease;
     }
+
+    .language-button:hover { background: rgba(23, 22, 20, .08); }
 
     .language-button[aria-pressed="true"] {
       background: var(--ink);
@@ -204,6 +234,7 @@
       font-weight: 500;
       letter-spacing: -.035em;
       line-height: 1;
+      text-wrap: balance;
     }
 
     .role {
@@ -276,6 +307,12 @@
       color: var(--ink);
     }
 
+    .button-primary:hover {
+      border-color: #d8bb87;
+      background: #d8bb87;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, .18);
+    }
+
     .button-secondary:hover {
       border-color: var(--ivory);
       background: var(--ivory);
@@ -335,7 +372,7 @@
     }
 
     .services {
-      padding: 92px 0 100px;
+      padding: 92px 0 72px;
     }
 
     .section-heading {
@@ -363,6 +400,7 @@
       font-weight: 500;
       letter-spacing: -.04em;
       line-height: 1;
+      text-wrap: balance;
     }
 
     .service-grid {
@@ -372,11 +410,11 @@
     }
 
     .service-card {
-      min-height: 286px;
-      padding: 27px;
+      min-height: 250px;
+      padding: 24px;
       display: flex;
       flex-direction: column;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(23, 22, 20, .11);
       border-radius: 24px;
       background: var(--white);
       transition: transform .25s ease, box-shadow .25s ease;
@@ -385,15 +423,29 @@
     .service-card:nth-child(2) { background: var(--cream); }
 
     .service-card-secondary {
-      background: transparent;
-      color: #4f4b46;
+      background: var(--white);
+      color: var(--ink);
     }
 
-    .service-card-secondary h3 { font-size: 27px; }
+    .service-card-secondary h3 { font-size: 30px; }
 
     .service-card:hover {
       box-shadow: 0 16px 35px rgba(32, 22, 28, .10);
-      transform: translateY(-5px);
+      transform: translateY(-3px);
+    }
+
+    .service-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .service-symbol {
+      color: var(--bronze);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 25px;
+      line-height: 1;
     }
 
     .service-number {
@@ -414,7 +466,7 @@
     }
 
     .service-card h3 {
-      margin: auto 0 14px;
+      margin: 32px 0 14px;
       font-family: Georgia, "Times New Roman", serif;
       font-size: 30px;
       font-weight: 500;
@@ -469,10 +521,38 @@
       color: var(--ink);
     }
 
+    .contact-link-primary {
+      border-color: var(--champagne);
+      background: var(--champagne);
+      color: var(--ink);
+    }
+
+    .contact-link-primary:hover {
+      border-color: #d8bb87;
+      background: #d8bb87;
+    }
+
+    .contact-link-copy {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+
+    .contact-link-copy strong { font-size: 15px; }
+
+    .contact-link-copy small {
+      overflow-wrap: anywhere;
+      font-size: 13px;
+      font-weight: 500;
+      opacity: .72;
+    }
+
     .contact-link span:last-child {
       color: var(--champagne);
       font-size: 19px;
     }
+
+    .contact-link-primary span:last-child { color: var(--ink); }
 
     .site-footer {
       min-height: 80px;
@@ -480,11 +560,20 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      color: var(--muted);
-      font-size: 12px;
+      color: #5f5a54;
+      font-size: 13px;
     }
 
-    .site-footer a { text-decoration: none; }
+    .site-footer a {
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+
+    .site-footer a:hover { color: var(--ink); }
+
+    #top,
+    #prestations,
+    #contact { scroll-margin-top: 24px; }
 
     :focus-visible {
       outline: 3px solid var(--champagne);
@@ -513,9 +602,12 @@
       .nav-link { display: none; }
       .nav-pill { padding: 9px 13px; font-size: 12px; }
 
+      .brand-name { display: none; }
+      .brand-initials { display: inline; }
+
       .language-button {
-        width: 30px;
-        height: 26px;
+        width: 44px;
+        height: 44px;
       }
 
       .hero { padding: 4px 0 68px; }
@@ -569,9 +661,9 @@
       .intro-strip { grid-template-columns: 1fr; }
       .intro-note, .intro-copy { min-height: 130px; padding: 24px; }
 
-      .services { padding: 70px 0 76px; }
+      .services { padding: 70px 0 58px; }
       .service-grid { grid-template-columns: 1fr; }
-      .service-card { min-height: 225px; }
+      .service-card { min-height: 205px; }
 
       .contact-panel {
         padding: 34px 22px;
@@ -603,13 +695,14 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#top" data-i18n="skipLink">Aller au contenu</a>
   <header class="site-header shell">
-    <a class="brand" href="#top" aria-label="Rachel Belier — Accueil" data-i18n-aria="brandLabel">RB<span>.</span></a>
+    <a class="brand" href="#top" aria-label="Rachel Belier — Accueil" data-i18n-aria="brandLabel"><span class="brand-name">Rachel Belier</span><span class="brand-initials">RB</span><span class="brand-mark">.</span></a>
     <nav class="nav" aria-label="Navigation principale" data-i18n-aria="navigationLabel">
       <a class="nav-link" href="#prestations" data-i18n="navServices">Prestations</a>
       <div class="language-switcher" role="group" aria-label="Choix de la langue" data-i18n-aria="languageLabel">
-        <button class="language-button" type="button" data-language="fr" aria-pressed="true">FR</button>
-        <button class="language-button" type="button" data-language="en" aria-pressed="false">EN</button>
+        <button class="language-button" type="button" data-language="fr" lang="fr" aria-label="Français" aria-pressed="true">FR</button>
+        <button class="language-button" type="button" data-language="en" lang="en" aria-label="English" aria-pressed="false">EN</button>
       </div>
       <a class="nav-pill" href="#contact" data-i18n="navCta">Me contacter</a>
     </nav>
@@ -619,7 +712,7 @@
     <section class="hero shell" aria-labelledby="hero-title">
       <div class="hero-card">
         <div class="hero-photo">
-          <img src="piano-hero.jpg" alt="Clavier de piano en noir et blanc" />
+          <img src="piano-hero.jpg" alt="Clavier de piano en noir et blanc" width="884" height="347" fetchpriority="high" />
         </div>
 
         <div class="hero-content">
@@ -653,19 +746,19 @@
 
       <div class="service-grid">
         <article class="service-card">
-          <span class="service-number">01</span>
+          <div class="service-meta"><span class="service-number">01</span><span class="service-symbol" aria-hidden="true">𝄞</span></div>
           <h3 data-i18n="serviceOneTitle">Concerts &amp; soirées privées</h3>
           <p data-i18n="serviceOneCopy">Un programme élégant et vivant, imaginé pour votre lieu, vos invités et l’atmosphère de votre soirée.</p>
         </article>
 
         <article class="service-card">
-          <span class="service-number">02</span>
+          <div class="service-meta"><span class="service-number">02</span><span class="service-symbol" aria-hidden="true">✦</span></div>
           <h3 data-i18n="serviceTwoTitle">Cérémonies &amp; réceptions</h3>
           <p data-i18n="serviceTwoCopy">Une présence musicale raffinée pour accompagner une cérémonie, un cocktail ou un moment précieux.</p>
         </article>
 
         <article class="service-card service-card-secondary">
-          <span class="service-number">03</span>
+          <div class="service-meta"><span class="service-number">03</span><span class="service-symbol" aria-hidden="true">♬</span></div>
           <h3 data-i18n="serviceThreeTitle">Cours de piano</h3>
           <p data-i18n="serviceThreeCopy">Des cours attentifs et personnalisés, proposés en complément de l’activité de pianiste.</p>
         </article>
@@ -679,11 +772,11 @@
       </div>
 
       <div class="contact-actions">
+        <a class="contact-link contact-link-primary" href="mailto:belier.rachel@hotmail.com?subject=Projet%20musical%20pour%20un%20événement">
+          <span class="contact-link-copy"><strong data-i18n="contactPrimary">Envoyer un e-mail</strong><small>belier.rachel@hotmail.com</small></span><span aria-hidden="true">↗</span>
+        </a>
         <a class="contact-link" href="tel:+33761519606">
           <span>+33 7 61 51 96 06</span><span aria-hidden="true">↗</span>
-        </a>
-        <a class="contact-link" href="mailto:belier.rachel@hotmail.com">
-          <span>belier.rachel@hotmail.com</span><span aria-hidden="true">↗</span>
         </a>
         <a class="contact-link" href="qr.html">
           <span data-i18n="qrLink">Afficher le QR contact</span><span aria-hidden="true">⌁</span>
@@ -732,6 +825,8 @@
         qrLink: 'Afficher le QR contact',
         footerRole: 'Pianiste',
         backToTop: 'Retour en haut ↑',
+        skipLink: 'Aller au contenu',
+        contactPrimary: 'Envoyer un e-mail',
         mailSubject: 'Projet musical pour un événement'
       },
       en: {
@@ -765,12 +860,15 @@
         qrLink: 'Show contact QR code',
         footerRole: 'Pianist',
         backToTop: 'Back to top ↑',
+        skipLink: 'Skip to content',
+        contactPrimary: 'Send an email',
         mailSubject: 'Music for a private event'
       }
     };
 
     const description = document.querySelector('meta[name="description"]');
     const primaryContact = document.querySelector('.button-primary');
+    const contactPrimary = document.querySelector('.contact-link-primary');
     const languageButtons = document.querySelectorAll('[data-language]');
 
     function setLanguage(language) {
@@ -794,6 +892,17 @@
       });
 
       primaryContact.href = `mailto:belier.rachel@hotmail.com?subject=${encodeURIComponent(copy.mailSubject)}`;
+      contactPrimary.href = `mailto:belier.rachel@hotmail.com?subject=${encodeURIComponent(copy.mailSubject)}`;
+
+      try {
+        const url = new URL(window.location.href);
+        if (selectedLanguage === 'fr') {
+          url.searchParams.delete('lang');
+        } else {
+          url.searchParams.set('lang', selectedLanguage);
+        }
+        window.history.replaceState({}, '', url);
+      } catch (_) {}
 
       try {
         localStorage.setItem('rachel-belier-language', selectedLanguage);
@@ -805,7 +914,8 @@
       savedLanguage = localStorage.getItem('rachel-belier-language');
     } catch (_) {}
 
-    const initialLanguage = savedLanguage || 'fr';
+    const urlLanguage = new URLSearchParams(window.location.search).get('lang');
+    const initialLanguage = translations[urlLanguage] ? urlLanguage : savedLanguage || 'fr';
     languageButtons.forEach((button) => {
       button.addEventListener('click', () => setLanguage(button.dataset.language));
     });
