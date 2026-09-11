@@ -8,6 +8,8 @@ Contenu :
 - `rachel-belier-contact.jpg` : version JPEG intégrée dans la fiche contact
 - `rachel-belier-contact-v3.vcf` : fiche contact avec photo JPEG intégrée
 - `qr-contact-v3.png` : QR code sans cache vers la fiche contact avec photo
+- `c.vcf` : URL courte de la fiche contact pour réduire la densité du QR code
+- `qr-contact-print.png` : QR haute définition optimisé pour l'impression
 - `piano-hero.jpg` : visuel principal de la page d'accueil
 
 Le site présente désormais :
@@ -22,4 +24,4 @@ Site publié à l'adresse : https://pianowithatwist.github.io/
 ## Important
 
 Le QR code pointe vers l’URL publique de la vCard :
-`https://pianowithatwist.github.io/rachel-belier-contact-v3.vcf`.
+`https://pianowithatwist.github.io/c.vcf`.
