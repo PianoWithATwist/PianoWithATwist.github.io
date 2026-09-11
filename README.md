@@ -19,4 +19,4 @@ Site publié à l'adresse : https://pianowithatwist.github.io/
 ## Important
 
 Le QR code pointe vers l’URL publique de la vCard :
-`https://pianowithatwist.github.io/rachel-belier.vcf`.
+`https://pianowithatwist.github.io/rachel-belier.vcf?v=2`.
